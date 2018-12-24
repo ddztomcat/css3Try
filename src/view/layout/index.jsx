@@ -8,41 +8,36 @@ const { Header, Sider, Content } = Layout;
 
 class MySider extends React.Component {
   state = {
-    collapsed: false,
-  };
+    collapsed: false
+  }
 
   toggle = () => {
     this.setState({
-      collapsed: !this.state.collapsed,
+      collapsed: !this.state.collapsed
     });
   }
-  handleClick = (key) => {
-    this.props.history.push(key);
+  handleClick = key => {
+    if(this.props.location.pathname !== key) {
+      this.props.history.push(key);
+    }
   }
   render() {
     const { match, location, history } = this.props;
     console.log(location);
     return (
       <Layout id="components-layout-demo-custom-trigger">
-        <Sider
-          trigger={null}
-          collapsible
-          collapsed={this.state.collapsed}
-        >
-          <div className="logo" />
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          <div className="logo" >CSS3</div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1" onClick={() => this.handleClick('/map')}>
-              <Icon type="user" />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2" onClick={() => this.handleClick('/learnRedux')}>
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3" onClick={() => this.handleClick('/home')}>
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
+            {routes.map((item, ind) => {
+              return <Menu.Item
+                key={ind + 1}
+                onClick={() => this.handleClick(item.path)}
+              >
+                <Icon type={item.icon} />
+                <span>{item.name}</span>
+              </Menu.Item>;
+            })}
           </Menu>
         </Sider>
         <Layout>
@@ -53,8 +48,17 @@ class MySider extends React.Component {
               onClick={this.toggle}
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-            {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+          <Content
+            style={{
+              margin: '24px 16px',
+              padding: 24,
+              background: '#fff',
+              minHeight: 280
+            }}
+          >
+            {routes.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route} />
+            ))}
           </Content>
         </Layout>
       </Layout>
@@ -63,10 +67,8 @@ class MySider extends React.Component {
 }
 const RouteWithSubRoutes = route => (
   <Route
-      path={route.path}
-      render={props => (
-          <route.component {...props} routes={route.routes} />
-      )}
+    path={route.path}
+    render={props => <route.component {...props} routes={route.routes} />}
   />
 );
 const ShowTheLocationWithRouter = withRouter(MySider);
