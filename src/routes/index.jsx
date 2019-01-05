@@ -13,6 +13,10 @@ const LoadableEarthMoon = Loadable({
     loader: () => import('@/view/earthMoon/index'),
     loading: Loading,
 });
+const LoadableZindex = Loadable({
+    loader: () => import('@/view/Zindex/index'),
+    loading: Loading,
+});
 const routes = [
     {
         path: '/home',
@@ -30,6 +34,12 @@ const routes = [
         path: '/earth-moon',
         component: LoadableEarthMoon,
         name: 'EarthMoon',
+        icon: 'radar-chart'
+    },
+    {
+        path: '/zindex',
+        component: LoadableZindex,
+        name: 'Zindex',
         icon: 'radar-chart'
     }
 ];

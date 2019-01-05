@@ -74,6 +74,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-live": "^1.12.0",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^4.3.1"
   }
