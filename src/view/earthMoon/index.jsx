@@ -17,6 +17,17 @@ export default class SVG extends Component {
           <div className={Style.jump_wrapper}>
             <img className={Style.jump_image} src={Rule}/>
           </div>
+          <div className={Style.loading}>
+            <span className={Style.circle}></span>
+            <span className={Style.circle}></span>
+            <span className={Style.circle}></span>
+          </div>
+          <div className={Style.circle_loading}>
+          </div>
+          <div className={Style.heart_wrapper}>
+            <div className={Style.left_heart}></div>
+            <div className={Style.right_heart}></div>
+          </div>
         </div>
       </div>
     );
