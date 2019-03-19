@@ -28,6 +28,22 @@ export default class SVG extends Component {
             <div className={Style.left_heart}></div>
             <div className={Style.right_heart}></div>
           </div>
+          <div className={Style.ad_flag}>
+            <span className={Style.ad_text}>广告牌招租，所见即所得</span>
+          </div>
+          {/* <div className={Style.test}>
+
+          </div> */}
+          <div className={Style.greater_wrapper}>
+            <span>&gt;</span>
+            <span>&gt;</span>
+            <span>&gt;</span>
+          </div>
+          <div className={Style.less_wrapper}>
+            <span>&lt;</span>
+            <span>&lt;</span>
+            <span>&lt;</span>
+          </div>
         </div>
       </div>
     );

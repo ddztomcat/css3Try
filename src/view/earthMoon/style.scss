@@ -59,6 +59,7 @@
   position: relative;
   display: flex;
   justify-content: space-around;
+  flex-flow: row wrap;
   margin-top: 80px;
   width: 100%;
   height: 100px;
@@ -178,7 +179,7 @@
   position: relative;
   // margin: 0 50px;
   background: #bf1a46;
-  animation: heart_animate 4s linear infinite alternate;
+  animation: heart_animate 16s ease infinite alternate;
 }
 .left_heart {
   position: absolute;
@@ -217,5 +218,105 @@
   100% {
     transform: scale(1, 1);
     background: #bf1a46;
+  }
+}
+.ad_flag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // width: 100px;
+  // height: 50px;
+  border: 5px solid transparent;
+  background: repeating-linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, transparent, transparent 25%, black 0, black 50%) 0 / 20px 20px;
+  animation: ad_animate 5s linear infinite;
+  overflow: hidden;
+}
+@keyframes ad_animate {
+  to {
+    background-position: 100% 100%
+  }
+}
+.test {
+  border: 1px solid red;
+  width: 40px;
+  height: 40px;
+  background: repeating-linear-gradient(transparent, transparent 25%, black 0, black 50%);
+}
+.ad_text {
+  display: inline-block;
+  color: #ff0045;
+  font-size: 36px;
+  font-weight: bold;
+  // text-shadow: 1px 1px red, 1px -1px red, -1px -1px red, -1px 1px red;
+  text-shadow: 1px 1px gray;
+  animation: ad_text_animate 5s linear infinite;
+}
+@keyframes ad_text_animate {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.greater_wrapper {
+  animation: greate 2s linear infinite;
+}
+.greater_wrapper, .less_wrapper{
+  font-size: 24px;
+  span {
+    display: inline-block;
+    margin: 0 -3px;
+  }
+  span:nth-child(1) {
+    animation: great_animate 1s ease-in -.66s infinite;
+  }
+  span:nth-child(2) {
+    animation: great_animate 1s ease-in -.33s infinite;
+  }
+  span:nth-child(3) {
+    animation: great_animate 1s ease-in infinite;
+  }
+}
+.less_wrapper {
+  animation: less 2s linear infinite;
+}
+@keyframes great_animate {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes greate {
+  40% {
+    transform: translateX(-15px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+@keyframes less {
+  40% {
+    transform: translateX(15px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
   }
 }
